@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const bookSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   userName: {
     type: String,
     required: true,
@@ -14,11 +14,19 @@ const bookSchema = new mongoose.Schema({
   views: {
     type: Number,
   },
+  password: {
+    type: String,
+    required: true,
+    minLength: 6,
+    trim: true,
+  },
   books: [
     {
+      image: {
+        type: String,
+      },
       name: {
         type: String,
-        required: true,
         maxlength: 20,
       },
       author: {
@@ -35,3 +43,7 @@ const bookSchema = new mongoose.Schema({
     },
   ],
 });
+
+const User = mongoose.model("user", userSchema);
+
+module.exports = User;
