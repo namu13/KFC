@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const router = express.Router();
 
-const getApiBookData = async title => {
+const getApiBookData = async (title) => {
   const response = await axios.get("https://dapi.kakao.com/v3/search/book", {
     headers: {
       Authorization: `KakaoAK ${process.env.API_KET}`,
@@ -65,9 +65,17 @@ router.get("/add_book/search/:name", async (req, res) => {
   }
 });
 
-router.post("/add_book", (req, res) => {
-  //create data
-  res.render("add_book");
+router.post("/add_book/:id", async (req, res) => {
+  const _id = mongoose.Types.ObjectId(req.params.id);
+  const data = req.body;
+  try {
+    const user = await User.findOne({ _id });
+    user.books.push(data);
+    await user.save();
+    res.redirect("back");
+  } catch (e) {
+    res.status(400).send(e);
+  }
 });
 
 router.get("/update", (req, res) => {
