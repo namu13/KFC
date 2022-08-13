@@ -12,7 +12,8 @@ const getApiBookData = async (title) => {
     },
     params: { query: title },
   });
-  console.log(response.data);
+
+  return response.data;
 };
 
 /* GET home page. */
