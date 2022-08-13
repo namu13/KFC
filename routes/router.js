@@ -24,13 +24,27 @@ router.get("/", async (req, res) => {
 
 router.get("/detail/:id", async (req, res) => {
   try {
-    console.log(req.params.id);
     const _id = mongoose.Types.ObjectId(req.params.id);
     // send One data
     users = await User.findOne({ _id });
     res.render("bookshelf", { users });
   } catch (e) {
     console.log(e);
+  }
+});
+
+router.get("/bookshelfview/:id", async (req, res) => {
+  const _id = mongoose.Types.ObjectId(req.params.id);
+  try {
+    user = await User.findOne({ _id });
+    shelfViewInt = parseInt(user.views) + 1;
+    shelfViewString = shelfViewInt.toString();
+    user.views = shelfViewString;
+    await user.save();
+    res.redirect("/");
+  } catch (e) {
+    console.log(e);
+    res.status(400).redirect("/");
   }
 });
 
