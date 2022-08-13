@@ -6,21 +6,24 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title bookshelf
     script(src="https://use.fontawesome.com/releases/v6.1.2/js/all.js")
-    link(rel="stylesheet", href="/stylesheets/style.css")
-    link(rel="stylesheet", href="/stylesheets/bookshelf.css")
+    link(rel="stylesheet", href="../stylesheets/style.css")
   body
-    p #{users.userName}님의 책장
-    .search
-      input(type="text", placeholder="책 제목 검색")
-      i.fa-regular.fa-magnifying-glass
-    .columnBox
-      -for(book of users.books)
-        .column
-          figure
-            img(src=`${book.image}`, alt="#", width="150px")
-            figcaption
-              div.bookName #{book.name}
-              div.aboutBook #{book.author}
-              div.aboutBook #{book.publisher}
-    .btn
-      button.button 책 추가
+    .wrap.bookshelf
+      .header
+        di.header-title #{users.userName} 책장
+      .search
+        input(class="search__input")
+        button(class="search__btn")
+          i.fa-solid.fa-magnifying-glass
+      .columnBox
+        -for(book of users.books)
+            .column
+                .column-image
+                    img(src=`${book.image}`, alt="#")
+                .column-text
+                    .bookName #{book.name}
+                    .aboutBook #{book.author}
+                    .aboutBook #{book.publisher}
+                    .publisher #{book.publisher}
+      div(class="btn_wrap")
+        button.button 책 추가
