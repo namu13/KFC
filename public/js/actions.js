@@ -66,7 +66,7 @@ function getBooks() {
   const search__input = $(".search__input").val();
   $.ajax({
     cache: false,
-    url: `/add_book/search/책`,
+    url: `/add_book/search/${search__input}`,
     type: "GET",
     success: function (e) {
       console.log(e);
