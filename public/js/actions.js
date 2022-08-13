@@ -18,13 +18,15 @@ function addLibrary() {
     url: "/libraryRegister",
     type: "POST",
     data: formData,
-    success: function (data) {
-      console.log("succs");
+    success: function () {
+      $(".modal").css("overflowY", "auto");
+      $(".modal").fadeOut();
+
+      location.reload();
     },
 
     error: function (xhr, status) {
       alert(status);
     },
   });
-  location.reload();
 }
