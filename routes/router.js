@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const router = express.Router();
 
-const getApiBookData = async title => {
+const getApiBookData = async (title) => {
   const response = await axios.get("https://dapi.kakao.com/v3/search/book", {
     headers: {
       Authorization: `KakaoAK ${process.env.API_KET}`,
@@ -43,7 +43,7 @@ router.post("/libraryRegister", async (req, res) => {
   const library = new User({ ...req.body });
   try {
     await library.save();
-    res.status(201).redirect("/");
+    res.redirect("/");
   } catch (e) {
     res.status(500).send(e);
   }
