@@ -12,6 +12,17 @@ ul > li {list-style:none;}
 
 .wrap {max-width: 1180px; width: 100%; margin: 0 auto; padding-left: 30px; padding-right: 30px;}
 
+.button {
+  padding: 0.5rem 0.75rem;
+  border-radius: 2px;
+  background: #141E61;
+  font-size: 0.75rem;
+  color: #fff;
+}
+.button.button-cancel {
+  background: #c3c0c0
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -25,10 +36,16 @@ ul > li {list-style:none;}
   background-color: rgba(0,0,0,0.4);
 }
 
+.modal-title {
+  margin: 0 0 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 .modal-content {
+  width: 60%;
   background-color: #fefefe;
   margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 40%;
+  padding: 2rem;
+  border-radius: 0.875rem;
 }

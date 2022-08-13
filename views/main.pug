@@ -1,10 +1,11 @@
 html
-  head
-    link(rel="stylesheet", href="stylesheets/style.css")
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
-    script(src="https://use.fontawesome.com/releases/v6.1.2/js/all.js")
-    script(src="js/modal.js")
-  body
+    head
+        link(rel="stylesheet", href="stylesheets/style.css")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+        script(src="https://use.fontawesome.com/releases/v6.1.2/js/all.js")
+        script(src="js/modal.js")
+        script(src="js/actions.js")
+    body
     .main
         .wrap.search
             a(href="/", class="search__logo")
@@ -34,15 +35,30 @@ html
         // The Modal
         .modal
             .modal-content
-                form
-                div
-                    label(for="card_title") 제목
-                    input(type="text", id="card_title")
-                div
-                    label(for="card_description") 제목
-                    input(type="text", id="card_description")
-                div
-                    label(for="card_password") 비밀번호
-                    input(type="text", id="card_password")
-                button 추가
-                button(id="close_close") 취소
+                .modal-title 책장 추가하기
+                table(class="data__inputs")
+                    tr
+                        td
+                            label(for="card_title") 제목
+                        td
+                            input(type="text", id="card_title")
+                    tr
+                        td
+                            label(for="card_description") 설명
+                        td
+                            input(type="text", id="card_description")
+                    tr
+                        td
+                            label(for="card_user") 닉네임
+                        td
+                            input(type="text", id="card_user")
+                    tr
+                        td
+                            label(for="card_password") 비밀번호
+                        td
+                            input(type="text", id="card_password")
+                div(class="data__inputs-buttons")
+                    button.button(id="add_library", type="button", onclick="addLibrary()") 추가
+                    button.button.button-cancel(id="close_close") 취소
+
+                    
