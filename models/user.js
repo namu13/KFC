@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     maxLength: 15,
   },
   views: {
-    type: Number,
+    type: String,
   },
   introduce: {
     type: String,
@@ -20,7 +20,6 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
-    minLength: 6,
     trim: true,
   },
   books: [

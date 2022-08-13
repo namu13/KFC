@@ -18,7 +18,6 @@ const getApiBookData = async title => {
 router.get("/", async (req, res) => {
   // send all data
   users = await User.find();
-  console.log(users);
   res.render("main", { users });
 });
 
@@ -33,9 +32,15 @@ router.get("/detail/:id", async (req, res) => {
 //   res.render("write");
 // });
 
-router.post("/libraryRegister", (req, res) => {
+router.post("/libraryRegister", async (req, res) => {
   //create library
-  res.redirect("/");
+  const library = new User({ ...req.body });
+  try {
+    await library.save();
+    res.status(201).redirect("/");
+  } catch (e) {
+    res.status(500).send(e);
+  }
 });
 
 router.get("/add_book", (req, res) => {
