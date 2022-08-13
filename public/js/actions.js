@@ -32,15 +32,15 @@ function addLibrary() {
 }
 
 function addBook() {
-  const id = window.location.pathname.replace("/add_book/", "");
-  const image = $(".add__form").attr("src");
+  const id = window.location.pathname.replace("/add_book/:", "");
+  const image = $(".add__form-image").attr("src");
   const name = $("#book_title").val();
   const author = $("#book_writer").val();
   const publisher = $("#book_publisher").val();
   const review = $("#book_experience").val();
 
   var formData = {
-    image: "",
+    image,
     name,
     author,
     review,
@@ -49,11 +49,11 @@ function addBook() {
 
   $.ajax({
     cache: false,
-    url: `/add_book/:${id}`,
+    url: `/add_book/${id}`,
     type: "POST",
     data: formData,
     success: function () {
-      location.reload();
+      window.history.back();
     },
 
     error: function (xhr, status) {
@@ -66,16 +66,44 @@ function getBooks() {
   const search__input = $(".search__input").val();
   $.ajax({
     cache: false,
-    url: `/add_book/search/책`,
+    url: `/add_book/search/:${search__input}`,
     type: "GET",
     success: function (e) {
-      console.log(e);
+      const parent = $(".search_result");
+      parent.empty();
+
+      e.documents.map(function (book) {
+        parent.append(
+          `<li><button class="abb" onclick="closeSearchModal()"
+          data-name="${book.title}"
+          data-publisher="${book.publisher}"
+          data-thumbnail="${book.thumbnail}"
+          data-authors="${book.authors[0]}">
+            제목: ${book.title} 출판사: ${book.publisher}</button>
+          </li>`
+        );
+      });
     },
 
     error: function (xhr, status) {
       alert(status);
     },
   });
+}
+
+function closeSearchModal() {
+  const thumbnail = $(".abb").data("thumbnail");
+  const name = $(".abb").data("name");
+  const authors = $(".abb").data("authors");
+  const publisher = $(".abb").data("publisher");
+
+  $(".add__form-image").attr("src", thumbnail);
+  $("#book_title").val(name);
+  $("#book_writer").val(authors);
+  $("#book_publisher").val(publisher);
+
+  $(`#find_book_modal`).css("overflowY", "auto");
+  $(`#find_book_modal`).fadeOut();
 }
 
 function setFilterParamsMain() {
