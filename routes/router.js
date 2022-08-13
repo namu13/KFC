@@ -1,5 +1,6 @@
 const express = require("express");
 const axios = require("axios");
+const User = require("../models/user");
 require("dotenv").config();
 const router = express.Router();
 
@@ -14,38 +15,42 @@ const getData = async title => {
 };
 
 /* GET home page. */
-router.get("/", function (req, res) {
+router.get("/", async (req, res) => {
   // send all data
-  res.render("index");
+  users = await User.find();
+  console.log(users);
+  res.render("main", { users });
 });
 
-router.get("/detail/:id", function (req, res) {
+router.get("/detail/:id", async (req, res) => {
+  const _id = req.params.id;
   // send One data
-  res.render("detail");
+  users = await User.findOne({ _id });
+  res.render("detail", { data: users });
 });
 
-router.get("/libraryRegister", function (req, res) {
+router.get("/libraryRegister", (req, res) => {
   res.render("write");
 });
 
-router.post("/bookshelfRegister", function (req, res) {
+router.post("/bookshelfRegister", (req, res) => {
   //create data
   getData("마녀");
   res.redirect("/libraryRegister");
 });
 
-router.get("/update", function (req, res) {
+router.get("/update", (req, res) => {
   res.render("update");
 });
 
-router.post("/update", function (req, res) {
+router.post("/update", (req, res) => {
   // patch data
   console.log(response);
 
   res.redirect("/");
 });
 
-router.delete("/update", function (req, res) {
+router.delete("/update", (req, res) => {
   // delete data
   res.redirect("/");
 });
