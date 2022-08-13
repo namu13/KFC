@@ -16,6 +16,7 @@
 .add__form .add__form-image {
   width: 20rem;
   height: 25rem;
+  background: gray;
 }
 .add__form .add__form-inputs {
   flex: 1;

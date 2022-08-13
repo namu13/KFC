@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bookshelf</title>
+    <script src="https://use.fontawesome.com/releases/v6.1.2/js/all.js"></script>
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="wrap bookshelf">
+      <div class="header">
+        <di class="header-title">아무개님의 책장</di>
+      </div>
+
+      <div class="search">
+        <input class="search__input" />
+        <button class="search__btn" onclick="getBooks()">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <div class="columnBox">
+        <div class="column">
+          <div class="column-image">
+            <img src="https://picsum.photos/100/100" alt="#" width="150px" />
+          </div>
+          <div class="column-text">
+            <div class="bookName">제목</div>
+            <div class="aboutBook">한줄소개</div>
+            <div class="aboutBook">'{book.author}'</div>
+            <div class="publisher">
+              '{book.publisher}' '{book.publisher}' '{book.publisher}'
+              '{book.publisher}''{book.publisher}''{book.publisher}''{book.publisher}''{book.publisher}'
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn_wrap">
+        <button class="button">책 추가</button>
+      </div>
+    </div>
+  </body>
+</html>
