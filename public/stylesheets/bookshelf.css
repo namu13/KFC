@@ -7,7 +7,7 @@ body {
 p {
   padding-top: 50px;
   font-size: 50px;
-  font-weight: 1000;
+  font-weight: bold;
 }
 
 input {
@@ -71,9 +71,13 @@ figcaption {
 
 .btn {
   height: 120px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .button {
+  margin-right: 0;
+  margin-left: auto;
   height: 70px;
   width: 150px;
   border-radius: 1rem 1rem 1rem 1rem;
