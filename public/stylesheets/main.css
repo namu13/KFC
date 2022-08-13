@@ -46,6 +46,7 @@
 .container .card .card__inner {
   display: flex;
   flex-direction: column;
+  width: 150px;
 }
 .container .card .card--description {
   font-size: 0.75rem;
