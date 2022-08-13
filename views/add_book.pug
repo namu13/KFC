@@ -2,15 +2,17 @@ doctype html
 html
   head
     link(rel="stylesheet", type="text/css", href="stylesheets/add_book.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    script(src="https://use.fontawesome.com/releases/v6.1.2/js/all.js")
+    script(src="js/add_book.js") 
     meta(charset="utf-8")
     title 책 추가하기
   body
     ul
-      li(id="add_book")  책 추가하기
+      li.add_book  책 추가하기
       li#save 저장
     hr#hr1
-    div(id="search_book") 책 검색하기
-    img(src="../bookex.jpg")
+    button#open_modal.search_book 책 검색하기
     #inf
       ul
         li 도서명
@@ -21,3 +23,6 @@ html
         hr
     #review 감상평
     #input 입력해 주세요.
+    // Madal
+    .modal
+      .modal-content
