@@ -1,5 +1,17 @@
 const express = require("express");
+const axios = require("axios");
+require("dotenv").config();
 const router = express.Router();
+
+const getData = async title => {
+  const response = await axios.get("https://dapi.kakao.com/v3/search/book", {
+    headers: {
+      Authorization: `KakaoAK ${process.env.API_KET}`,
+    },
+    params: { query: title },
+  });
+  console.log(response.data);
+};
 
 /* GET home page. */
 router.get("/", function (req, res) {
@@ -18,7 +30,8 @@ router.get("/libraryRegister", function (req, res) {
 
 router.post("/bookshelfRegister", function (req, res) {
   //create data
-  res.redirect("/");
+  getData("마녀");
+  res.redirect("/libraryRegister");
 });
 
 router.get("/update", function (req, res) {
@@ -27,6 +40,8 @@ router.get("/update", function (req, res) {
 
 router.post("/update", function (req, res) {
   // patch data
+  console.log(response);
+
   res.redirect("/");
 });
 
