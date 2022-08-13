@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app"
+    "start": "node app",
+    "dev": "nodemon app"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.1",
