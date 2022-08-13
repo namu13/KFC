@@ -7,31 +7,18 @@ html(lang="en")
     title bookshelf
     link(rel="stylesheet", href="stylesheets/style.css")
   body
-    p 하도연님의 책장
+    p #{users.userName}님의 책장
     .search
       input(type="text", placeholder="책 제목 검색")
       i.fa-regular.fa-magnifying-glass
-    #column
-      figure
-        img(src="../img/아몬드.jpg", alt="#")
-        figcaption
-          h1 아몬드
-          h3 116회
-          h3 진짜 재미있음!!
-    #column1
-      figure
-        img(src="../img/아몬드.jpg", alt="#")
-        figcaption
-          h1 아몬드
-          h3 116회
-          h3 진짜 재미있음!!
-    #column1
-      figure
-        img(src="../img/아몬드.jpg", alt="#")
-        figcaption
-          h1 아몬드
-          h3 116회
-          h3 진짜 재미있음!!
+    -for(book of users.books)
+      .column
+        figure
+          img(src=`${book.image}`, alt="#", width="100px")
+          figcaption
+            h1 #{book.name}
+            h3 #{book.author}
+            h3 #{book.publisher}
     .btn
       button.button
         link(rel="stylesheet", href="add_book.pug")
