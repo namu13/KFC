@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title bookshelf
+    link(rel="stylesheet", href="../public/stylesheets/bookshelf.css")
+  body
+    p 하도연님의 책장
+    .search
+      input(type="text", placeholder="책 제목 검색")
+      i.fa-regular.fa-magnifying-glass
+    #column
+      figure
+        img(src="../img/아몬드.jpg", alt="#")
+        figcaption
+          h1 아몬드
+          h3 116회
+          h3 진짜 재미있음!!
+    #column1
+      figure
+        img(src="../img/아몬드.jpg", alt="#")
+        figcaption
+          h1 아몬드
+          h3 116회
+          h3 진짜 재미있음!!
+    #column1
+      figure
+        img(src="../img/아몬드.jpg", alt="#")
+        figcaption
+          h1 아몬드
+          h3 116회
+          h3 진짜 재미있음!!
+    .btn
+      button.button
+        link(rel="stylesheet", href="add_book.pug")
+        | 책 추가
