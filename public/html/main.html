@@ -33,13 +33,13 @@
       <div class="gnb">
         <ul class="wrap">
           <li>
-            <button id="open_modal" data-modal="add_book">추가하기</button>
+            <button class="open_modal" data-modal="add_book">추가하기</button>
           </li>
         </ul>
       </div>
 
       <div class="wrap container">
-        <a href="/detail/:id" class="card">
+        <a href="/bookshelfview/:id" class="card">
           <div class="card__inner">
             <div class="card--title">하도연님의 책장</div>
             <div class="card--description">진짜 명작 모음집</div>
@@ -110,8 +110,7 @@
             추가
           </button>
           <button
-            id="close_close"
-            class="button button-cancel"
+            class="button button-cancel close_close"
             data-modal="add_book"
           >
             취소
