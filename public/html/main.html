@@ -33,7 +33,7 @@
       <div class="gnb">
         <ul class="wrap">
           <li>
-            <button id="open_modal">추가하기</button>
+            <button id="open_modal" data-modal="add_book">추가하기</button>
           </li>
         </ul>
       </div>
@@ -61,7 +61,7 @@
     </div>
 
     <!-- The Modal -->
-    <div class="modal">
+    <div id="add_book_modal" class="modal">
       <div class="modal-content">
         <div class="modal-title">책장 추가하기</div>
 
@@ -109,7 +109,13 @@
           >
             추가
           </button>
-          <button id="close_close" class="button button-cancel">취소</button>
+          <button
+            id="close_close"
+            class="button button-cancel"
+            data-modal="add_book"
+          >
+            취소
+          </button>
         </div>
       </div>
     </div>

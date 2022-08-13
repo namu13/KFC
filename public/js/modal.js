@@ -1,11 +1,17 @@
 $(function () {
+  console.log("object");
+
   $("#open_modal").click(function () {
-    $(".modal").css("overflowY", "hidden");
-    $(".modal").fadeIn();
+    const modal = $(this).data("modal");
+
+    $(`#${modal}_modal`).css("overflowY", "hidden");
+    $(`#${modal}_modal`).fadeIn();
   });
 
   $("#close_close").click(function () {
-    $(".modal").css("overflowY", "auto");
-    $(".modal").fadeOut();
+    const modal = $(this).data("modal");
+
+    $(`#${modal}_modal`).css("overflowY", "auto");
+    $(`#${modal}_modal`).fadeOut();
   });
 });
