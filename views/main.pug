@@ -31,7 +31,7 @@ html
                     if user.books
                         .card--images
                             each book in user.books.slice(0, 3)
-                                img(class="card--images-item")(src=`${book.image}`, alt="book")
+                                img.card--images-item(src=`${book.image}`, alt="book")
                                 
 
         // The Modal
