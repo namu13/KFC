@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
   views: {
     type: Number,
   },
+  introduce: {
+    type: String,
+  },
   password: {
     type: String,
     required: true,
