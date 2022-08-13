@@ -2,7 +2,7 @@ function addLibrary() {
   const userName = $("#card_user").val();
   const bookshelf = $("#card_title").val();
   const introduce = $("#card_description").val();
-  const password = $("#password").val();
+  const password = $("#card_password").val();
 
   var formData = {
     userName,
