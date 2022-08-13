@@ -26,4 +26,5 @@ function addLibrary() {
       alert(status);
     },
   });
+  location.reload();
 }
