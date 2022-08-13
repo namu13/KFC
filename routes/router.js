@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const router = express.Router();
 
-const getApiBookData = async title => {
+const getApiBookData = async (title) => {
   const response = await axios.get("https://dapi.kakao.com/v3/search/book", {
     headers: {
       Authorization: `KakaoAK ${process.env.API_KET}`,
@@ -25,25 +25,13 @@ router.get("/", async (req, res) => {
 router.get("/bookshelf/:id", async (req, res) => {
   try {
     const _id = mongoose.Types.ObjectId(req.params.id);
-    // send One data
     users = await User.findOne({ _id });
+    shelfViewInt = parseInt(users.views) + 1;
+    shelfViewString = shelfViewInt.toString();
+    users.views = shelfViewString;
+    await users.save();
     res.render("bookshelf", { users });
   } catch (e) {
-    console.log(e);
-  }
-});
-
-router.get("/bookshelfview/:id", async (req, res) => {
-  const _id = mongoose.Types.ObjectId(req.params.id);
-  try {
-    user = await User.findOne({ _id });
-    shelfViewInt = parseInt(user.views) + 1;
-    shelfViewString = shelfViewInt.toString();
-    user.views = shelfViewString;
-    await user.save();
-    res.redirect("/");
-  } catch (e) {
-    console.log(e);
     res.status(400).redirect("/");
   }
 });
@@ -64,13 +52,21 @@ router.post("/libraryRegister", async (req, res) => {
 });
 
 router.get("/add_book", (req, res) => {
-  //create data
   res.render("add_book");
+});
+
+router.get("/add_book/search/:name", async (req, res) => {
+  const name = req.params.name;
+  try {
+    const bookData = await getApiBookData(name);
+    res.send(bookData);
+  } catch (e) {
+    res.status(400).send(e);
+  }
 });
 
 router.post("/add_book", (req, res) => {
   //create data
-  getApiBookData("마녀");
   res.render("add_book");
 });
 
