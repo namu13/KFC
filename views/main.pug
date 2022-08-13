@@ -20,7 +20,8 @@ html
                     button(id="open_modal") 추가하기
         .wrap.container
             each user in users
-                a.card
+                - var link = '/detail/:' + user.id
+                a(href=link, class="card")
                     div(class="card__inner")
                         .card--title #{user.bookshelf}
                         .card--description #{user.introduce}
@@ -28,9 +29,12 @@ html
                         .card--hits
                             i.fa-regular.fa-eye
                             .card--hits-count #{user.views}
-                    .card--images
-                        each book in books ? books : []
-                            img(src="#{book}", alt="book")
+                    if user.books
+                        .card--images
+                            each book in user.books.slice(0, 3)
+                                - var url = book.image
+                                img(class="card--images-item")(src=url, alt="book")
+                                
 
         // The Modal
         .modal
