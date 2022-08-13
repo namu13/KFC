@@ -98,3 +98,7 @@ function filter() {
     }
   }
 }
+
+function goBackPage() {
+  document.querySelector("#backForm").submit();
+}
