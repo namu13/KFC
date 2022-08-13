@@ -5,21 +5,22 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title bookshelf
-    link(rel="stylesheet", href="stylesheets/style.css")
+    script(src="https://use.fontawesome.com/releases/v6.1.2/js/all.js")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    link(rel="stylesheet", href="/stylesheets/bookshelf.css")
   body
     p #{users.userName}님의 책장
     .search
       input(type="text", placeholder="책 제목 검색")
       i.fa-regular.fa-magnifying-glass
-    -for(book of users.books)
-      .column
-        figure
-          img(src=`${book.image}`, alt="#", width="100px")
-          figcaption
-            h1 #{book.name}
-            h3 #{book.author}
-            h3 #{book.publisher}
+    .columnBox
+      -for(book of users.books)
+        .column
+          figure
+            img(src=`${book.image}`, alt="#", width="150px")
+            figcaption
+              div.bookName #{book.name}
+              div.aboutBook #{book.author}
+              div.aboutBook #{book.publisher}
     .btn
-      button.button
-        link(rel="stylesheet", href="add_book.pug")
-        | 책 추가
+      button.button 책 추가
