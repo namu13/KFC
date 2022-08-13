@@ -26,6 +26,5 @@ html(lang="en")
                     .publisher #{book.review}
       div(class="btn_wrap")
         a(href=`/add_book/:${users.id}`).button 책 추가
-  form#backForm(action="/", method="get")
-    div#iconBoxJS
-      i.fa-solid.fa-angle-left(onclick="goBackPage()")
+    a.icon_link(href="/")
+      i.fa-solid.fa-angle-left
