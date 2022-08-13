@@ -20,7 +20,7 @@ html
                     button(id="open_modal") 추가하기
         .wrap.container
             each user in users
-                a.card
+                a(href=`/detail/${user.id}`).card
                     div(class="card__inner")
                         .card--title #{user.bookshelf}
                         .card--description #{user.introduce}

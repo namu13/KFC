@@ -1,6 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const User = require("../models/user");
+const mongoose = require("mongoose");
 require("dotenv").config();
 const router = express.Router();
 
@@ -22,10 +23,15 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/detail/:id", async (req, res) => {
-  const _id = req.params.id;
-  // send One data
-  users = await User.findOne({ _id });
-  res.render("detail", { users });
+  try {
+    console.log(req.params.id);
+    const _id = mongoose.Types.ObjectId(req.params.id);
+    // send One data
+    users = await User.findOne({ _id });
+    res.render("bookshelf", { users });
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 // router.get("/libraryRegister", (req, res) => {
