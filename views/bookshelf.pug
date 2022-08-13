@@ -13,7 +13,7 @@ html(lang="en")
       .header
         di.header-title #{users.userName} 책장
       .search
-        input(class="search__input")
+        input.search__input(onkeyup="setFilterParamsBookShelf()")
         button(class="search__btn")
           i.fa-solid.fa-magnifying-glass
       .columnBox
