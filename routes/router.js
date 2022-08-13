@@ -33,6 +33,21 @@ router.get("/bookshelf/:id", async (req, res) => {
   }
 });
 
+router.get("/bookshelfview/:id", async (req, res) => {
+  const _id = mongoose.Types.ObjectId(req.params.id);
+  try {
+    user = await User.findOne({ _id });
+    shelfViewInt = parseInt(user.views) + 1;
+    shelfViewString = shelfViewInt.toString();
+    user.views = shelfViewString;
+    await user.save();
+    res.redirect("/");
+  } catch (e) {
+    console.log(e);
+    res.status(400).redirect("/");
+  }
+});
+
 // router.get("/libraryRegister", (req, res) => {
 //   res.render("write");
 // });
