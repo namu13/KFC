@@ -6,13 +6,14 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title bookshelf
     script(src="https://use.fontawesome.com/releases/v6.1.2/js/all.js")
+    script(src="../js/actions.js")
     link(rel="stylesheet", href="../stylesheets/style.css")
   body
     .wrap.bookshelf
       .header
         di.header-title #{users.userName} 책장
       .search
-        input(class="search__input")
+        input.search__input(onkeyup="setFilterParamsBookShelf()")
         button(class="search__btn")
           i.fa-solid.fa-magnifying-glass
       .columnBox
@@ -27,3 +28,6 @@ html(lang="en")
                     .publisher #{book.review}
       div(class="btn_wrap")
         a(href=`/add_book/:${users.id}`).button 책 추가
+   form#backForm(action="/", method="get")
+    div#iconBoxJS
+      i.fa-solid.fa-angle-left(onclick="goBackPage()")
