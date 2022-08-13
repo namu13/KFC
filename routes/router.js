@@ -4,7 +4,7 @@ const User = require("../models/user");
 require("dotenv").config();
 const router = express.Router();
 
-const getData = async title => {
+const getApiBookData = async title => {
   const response = await axios.get("https://dapi.kakao.com/v3/search/book", {
     headers: {
       Authorization: `KakaoAK ${process.env.API_KET}`,
@@ -26,17 +26,27 @@ router.get("/detail/:id", async (req, res) => {
   const _id = req.params.id;
   // send One data
   users = await User.findOne({ _id });
-  res.render("detail", { data: users });
+  res.render("detail", { users });
 });
 
-router.get("/libraryRegister", (req, res) => {
-  res.render("write");
+// router.get("/libraryRegister", (req, res) => {
+//   res.render("write");
+// });
+
+router.post("/libraryRegister", (req, res) => {
+  //create library
+  res.redirect("/");
 });
 
-router.post("/bookshelfRegister", (req, res) => {
+router.get("/add_book", (req, res) => {
   //create data
-  getData("마녀");
-  res.redirect("/libraryRegister");
+  res.render("add_book");
+});
+
+router.post("/add_book", (req, res) => {
+  //create data
+  getApiBookData("마녀");
+  res.render("add_book");
 });
 
 router.get("/update", (req, res) => {
