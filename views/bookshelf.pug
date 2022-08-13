@@ -24,6 +24,6 @@ html(lang="en")
                     .bookName #{book.name}
                     .aboutBook #{book.author}
                     .aboutBook #{book.publisher}
-                    .publisher #{book.publisher}
+                    .publisher #{book.review}
       div(class="btn_wrap")
-        button.button 책 추가
+        a(href=`/add_book/:${users.id}`).button 책 추가

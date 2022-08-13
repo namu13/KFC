@@ -51,8 +51,9 @@ router.post("/libraryRegister", async (req, res) => {
   }
 });
 
-router.get("/add_book", (req, res) => {
-  res.render("add_book");
+router.get("/add_book/:id", (req, res) => {
+  const _id = req.params.id;
+  res.render("add_book", { _id });
 });
 
 router.get("/add_book/search/:name", async (req, res) => {

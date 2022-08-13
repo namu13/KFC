@@ -1,11 +1,11 @@
 doctype html
 html
   head
-    link(rel="stylesheet", type="text/css", href="stylesheets/style.css")
+    link(rel="stylesheet", type="text/css", href="../stylesheets/style.css")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
     script(src="https://use.fontawesome.com/releases/v6.1.2/js/all.js")
-    script(src="js/modal.js")
-    script(src="js/actions.js")
+    script(src="../js/modal.js")
+    script(src="../js/actions.js")
     meta(charset="utf-8")
     title 책 추가하기
   body
@@ -13,7 +13,7 @@ html
       .wrap.header
         .header-title 책 추가하기
         div
-          button(class="open_modal button", data-modal="save_book")
+          button(class="button", onclick="addBook()")
             | 추가하기
       .wrap.container
         div(id="search_book")
@@ -57,5 +57,4 @@ html
           li 제목 / 지은이: 아무개
         div(class="data__inputs-buttons")
           button.button(id="add_library", type="button") 추가
-          button(class="button button-cancel close_close", data-modal="find_book")
-            | 취소
+          button(class="button button-cancel close_close", data-modal="find_book") 취소
