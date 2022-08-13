@@ -28,9 +28,11 @@ html
                         .card--hits
                             i.fa-regular.fa-eye
                             .card--hits-count #{user.views}
-                    .card--images
-                        each book in books ? books : []
-                            img(src="#{book}", alt="book")
+                    if user.books
+                        .card--images
+                            each book in user.books.slice(0, 3)
+                                img(class="card--images-item")(src=`${book.image}`, alt="book")
+                                
 
         // The Modal
         .modal

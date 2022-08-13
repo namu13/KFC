@@ -1,4 +1,4 @@
-body {
+<<<<<<< HEAD body {
   margin: 0;
   padding-left: 150px;
   padding-right: 150px;
@@ -9,7 +9,7 @@ p {
   font-weight: 1000;
 }
 
-input {
+=======>>>>>>>fc74d6e02d7a613501313309cfdd883683ea161f input {
   width: 55%;
   height: 50px;
   border: 2px solid #141e61;

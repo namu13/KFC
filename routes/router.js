@@ -18,7 +18,7 @@ const getApiBookData = async title => {
 /* GET home page. */
 router.get("/", async (req, res) => {
   // send all data
-  users = await User.find();
+  users = await User.find().sort({ createdAt: -1 });
   res.render("main", { users });
 });
 
