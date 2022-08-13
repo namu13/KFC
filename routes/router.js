@@ -4,7 +4,7 @@ const router = express.Router();
 /* GET home page. */
 router.get("/", function (req, res) {
   // send all data
-  res.render("index", { data: data });
+  res.render("index");
 });
 
 router.get("/detail/:id", function (req, res) {
