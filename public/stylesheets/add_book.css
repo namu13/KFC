@@ -14,7 +14,7 @@
     padding-right: 4%;
     padding-top: 1%;
     padding-bottom: 1%;
-    border-radius: 5%;
+    border-radius:1rem 1rem 1rem 1rem;
     font-size: 100%;
 }
 
@@ -42,7 +42,7 @@ li{
     text-align: center;
     padding-top: 1%;
     padding-bottom: 1%;
-    border-radius: 22%;
+    border-radius:1rem 1rem 1rem 1rem;
 }
 
 img{
@@ -79,5 +79,5 @@ hr{
     width: 1000px;
     border: 1px solid black;
     margin-bottom: 5%;
-    border-radius:2%;
+    border-radius:1rem 1rem 1rem 1rem;
 }
