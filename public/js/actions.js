@@ -83,3 +83,18 @@ function getBooks() {
   });
   // fetch("/add_book").then((e) => console.log(e));
 }
+
+function filter() {
+  let name, i;
+
+  const inputValue = document.querySelectorAll(".search__input")[0].value;
+  const item = document.getElementsByClassName("card");
+  for (i = 0; i < item.length; i++) {
+    name = item[i].querySelectorAll(".card--title")[0].innerHTML;
+    if (name.indexOf(inputValue) > -1) {
+      item[i].style.display = "flex";
+    } else {
+      item[i].style.display = "none";
+    }
+  }
+}
