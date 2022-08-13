@@ -27,15 +27,12 @@ const userSchema = new mongoose.Schema({
       },
       name: {
         type: String,
-        maxlength: 20,
       },
       author: {
         type: String,
-        maxlength: 15,
       },
       publisher: {
         type: String,
-        maxlength: 15,
       },
       review: {
         type: String,
