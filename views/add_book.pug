@@ -1,28 +1,61 @@
 doctype html
 html
   head
-    link(rel="stylesheet", type="text/css", href="stylesheets/add_book.css")
+    link(rel="stylesheet", type="text/css", href="stylesheets/style.css")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
     script(src="https://use.fontawesome.com/releases/v6.1.2/js/all.js")
-    script(src="js/add_book.js") 
+    script(src="js/modal.js")
+    script(src="js/actions.js")
     meta(charset="utf-8")
     title 책 추가하기
   body
-    ul
-      li.add_book  책 추가하기
-      li#save 저장
-    hr#hr1
-    button#open_modal.search_book 책 검색하기
-    #inf
-      ul
-        li 도서명
-        hr
-        li 지은이
-        hr
-        li 출판사
-        hr
-    #review 감상평
-    #input 입력해 주세요.
-    // Madal
-    .modal
+    .add
+      .wrap.header
+        .header-title 책 추가하기
+        div
+          button(class="open_modal button", data-modal="save_book")
+            | 추가하기
+      .wrap.container
+        div(id="search_book")
+          button(class="open_modal button", data-modal="find_book")
+            | 책 검색하기
+        div(class="add__form")
+          img(class="add__form-image", src=, alt=)
+          div(class="add__form-inputs")
+            table(class="data__inputs")
+              tr
+                td
+                  label(for="book_title") 도서명
+                td
+                  input(type="text", id="book_title")
+              tr
+                td
+                  label(for="book_writer") 지은이
+                td
+                  input(type="text", id="book_writer")
+              tr
+                td
+                  label(for="book_publisher") 출판사
+                td
+                  input(type="text", id="book_publisher")
+        label(for="book_experience") 감상평
+        textarea(id="book_experience", class="book_experience")
+    // The find_book_modal
+    .modal(id="find_book_modal")
       .modal-content
+        .modal-title 책 검색하기
+        .search
+          input(class="search__input")
+          button(class="search__btn", onclick="getBooks()")
+            i.fa-solid.fa-magnifying-glass
+        ul(class="search_result")
+          li
+            button 제목 / 지은이: 아무개
+          li 제목 / 지은이: 아무개
+          li 제목 / 지은이: 아무개
+          li 제목 / 지은이: 아무개
+          li 제목 / 지은이: 아무개
+        div(class="data__inputs-buttons")
+          button.button(id="add_library", type="button") 추가
+          button(class="button button-cancel close_close", data-modal="find_book")
+            | 취소
