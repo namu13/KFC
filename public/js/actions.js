@@ -133,7 +133,3 @@ function filtering(item, nameTag) {
     }
   }
 }
-
-function goBackPage() {
-  document.querySelector("#backForm").submit();
-}

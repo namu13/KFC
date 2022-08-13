@@ -1,89 +1,89 @@
 .search {
-    display: flex;
-    align-items: center;
-    height: 10rem;
+  display: flex;
+  align-items: center;
+  height: 6rem;
 }
 .search .search__logo svg {
-    width: 3.25rem;
-    height: 3.25rem;
+  width: 3.25rem;
+  height: 3.25rem;
 }
 .search .search__input {
-    width: 27.75rem;
-    height: 3.25rem;
-    padding: 1rem;
-    margin: 0 0 0 2rem;
-    border: 2px solid #141E61;
+  width: 27.75rem;
+  height: 3.25rem;
+  padding: 1rem;
+  margin: 0 0 0 2rem;
+  border: 2px solid #141e61;
 }
 .search .search__btn {
-    width: 3.25rem;
-    height: 3.25rem;
-    background: #141E61;
-    color: #ffffff;
+  width: 3.25rem;
+  height: 3.25rem;
+  background: #141e61;
+  color: #ffffff;
 }
 
 .gnb {
-    padding: 0.75rem 2rem;
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
+  padding: 0.75rem 2rem;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.25rem;
 }
 .container .card {
-    display: flex;
-    flex: 0 0 calc(50% - 1.5rem);
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    border: 1px solid #e5e6e9;
-    border-radius: 0.75rem;
-    cursor: pointer;
+  display: flex;
+  flex: 0 0 calc(50% - 1.5rem);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e6e9;
+  border-radius: 0.75rem;
+  cursor: pointer;
 }
 .container .card .card__inner {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .container .card .card--description {
-    font-size: 0.75rem;
-    color: #7a7c85;
+  font-size: 0.75rem;
+  color: #7a7c85;
 }
 .container .card .card--hits {
-    display: flex;
-    align-items: center;
-    margin: 0.75rem 0 0;
-    font-size: 0.75rem;
-    color: #7a7c85;
+  display: flex;
+  align-items: center;
+  margin: 0.75rem 0 0;
+  font-size: 0.75rem;
+  color: #7a7c85;
 }
 .container .card .card--hits .card--hits-count {
-    margin: 0 0 0 0.5rem;
+  margin: 0 0 0 0.5rem;
 }
 .container .card .card--images {
-    display: flex;
-    gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 .container .card .card--images .card--images-item {
-    width: 3rem;
+  width: 3rem;
 }
 
 .data__inputs {
-    width: 100%;
+  width: 100%;
 }
 .data__inputs td {
-    padding: 0.25rem;
+  padding: 0.25rem;
 }
 .data__inputs input {
-    width: 100%;
-    border: 0;
-    border-bottom: 2px solid #141E61;
-    outline: none;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #141e61;
+  outline: none;
 }
 .data__inputs-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    margin: 2rem 0 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin: 2rem 0 0;
 }
