@@ -1,29 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
- <head>
-    <link rel="stylesheet" type="text/css" href="../study/add_book.css">
-  <meta charset = "utf-8">
-  <title>책 추가하기</title>
- </head>
- <body>
-  <ul>
-   <li id="add_book"> 책 추가하기</li>
-   <li id="save"> 저장</li>
-   </ul>
-  <hr id="hr1">
-  <div id="search_book">책 검색하기</div>
-  <img src = "../bookex.jpg">
-  <div id="inf">
-     <ul>
-      <li>도서명</li>
-      <hr>
-      <li>지은이</li>
-      <hr>
-      <li>출판사</li>
-      <hr>
-</ul>
-  </div>
-  <div id="review">감상평</div>
-  <div id="input">입력해주세요.</div>
- </body>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v6.1.2/js/all.js"></script>
+    <script src="../js/modal.js"></script>
+    <meta charset="utf-8" />
+    <title>책 추가하기</title>
+  </head>
+  <body>
+    <div class="add">
+      <div class="wrap header">
+        <div class="header-title">책 추가하기</div>
+        <div>
+          <button id="open_modal" class="button" data-modal="save_book">
+            추가하기
+          </button>
+        </div>
+      </div>
+
+      <div class="wrap container">
+        <div id="search_book">
+          <button id="open_modal" class="button" data-modal="find_book">
+            책 검색하기
+          </button>
+        </div>
+
+        <div class="add__form">
+          <img class="add__form-image" src="" alt="" />
+
+          <div class="add__form-inputs">
+            <table class="data__inputs">
+              <tr>
+                <td>
+                  <label for="book_title">도서명</label>
+                </td>
+                <td>
+                  <input type="text" id="book_title" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="book_writer">지은이</label>
+                </td>
+                <td>
+                  <input type="text" id="book_writer" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="book_publisher">출판사</label>
+                </td>
+                <td>
+                  <input type="text" id="book_publisher" />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <label for="book_experience">감상평</label>
+        <textarea id="book_experience" class="book_experience"></textarea>
+      </div>
+    </div>
+
+    <!-- The find_book_modal -->
+    <div id="find_book_modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-title">책 검색하기</div>
+
+        <div class="data__inputs-buttons">
+          <button
+            id="add_library"
+            class="button"
+            type="button"
+            onclick="addLibrary()"
+          >
+            추가
+          </button>
+          <button
+            id="close_close"
+            class="button button-cancel"
+            data-modal="find_book"
+          >
+            취소
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -17,7 +17,7 @@ html
         .gnb
             ul.wrap
                 li
-                    button(id="open_modal") 추가하기
+                    button(id="open_modal", data-modal="add_book") 추가하기
         .wrap.container
             each user in users
                 a(href=`/detail/${user.id}`).card
@@ -35,7 +35,7 @@ html
                                 
 
         // The Modal
-        .modal
+        .modal(class="add_book_modal")
             .modal-content
                 .modal-title 책장 추가하기
                 table(class="data__inputs")
@@ -61,6 +61,7 @@ html
                             input(type="text", id="card_password")
                 div(class="data__inputs-buttons")
                     button.button(id="add_library", type="button", onclick="addLibrary()") 추가
-                    button.button.button-cancel(id="close_close") 취소
+                    button.button.button-cancel(id="close_close", data-modal="add_book") 취소
+
 
                     
