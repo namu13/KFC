@@ -62,7 +62,7 @@ function addBook() {
   });
 }
 
-window.getBooks = function getBooks() {
+function getBooks() {
   const search__input = $(".search__input").val();
   $.ajax({
     cache: false,
@@ -89,7 +89,7 @@ window.getBooks = function getBooks() {
       alert(status);
     },
   });
-};
+}
 
 function closeSearchModal() {
   const thumbnail = $(".abb").data("thumbnail");
